@@ -17,8 +17,9 @@ class Program
         {
             Console.WriteLine(userName + ", please enter a number between 1 and 100");
             numberEntered = int.Parse(Console.ReadLine());
+        }
 
-            if (numberEntered % 2 != 0 && numberEntered < 60)
+        if (numberEntered % 2 != 0 && numberEntered < 60)
             {
                 Console.WriteLine(userName + ", your input is odd and less than 60");
             }
@@ -34,12 +35,10 @@ class Program
             {
                 Console.WriteLine(userName + ", your input is even and greater than 60");
             }
-            else if (numberEntered % 2 != 0 && numberEntered < 60)
+            else if (numberEntered % 2 != 0 && numberEntered > 60)
             {
                 Console.WriteLine(userName + ", your input is odd and greater than 60");
             }
-
-        }
 
         Console.WriteLine("---- Ending Numbers Analyzer ----");
         
