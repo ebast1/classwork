@@ -40,7 +40,7 @@ class Program
                 getInput = false;
             }
 
-        } while (whatUserEntered == "");
+        } while (whatUserEntered != "Y" && whatUserEntered != "N");
 
         return getInput;
     }
@@ -48,9 +48,7 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("--- Starting Shopping List ---");
-
-        // ** itemMenu creation and view **
-
+        
         Dictionary<string, decimal> itemMenu = new Dictionary<string, decimal>();
 
         itemMenu["apple"] = 1.99M;
@@ -63,22 +61,17 @@ class Program
         itemMenu["tomato"] = 8.99M;
 
         Console.WriteLine("\n***** Item Menu *****");
+        
         foreach (KeyValuePair<string, decimal> item in itemMenu)
         {
             Console.WriteLine(item.Key + ": " + item.Value);
         }
 
         Console.WriteLine("*********************\n");
-
-        // ** itemMenu creation and view **
-
+        
         List<string> shoppingList = new List<string>();
 
         decimal shoppingTotal = 0M;
-        
-        // do this while isContinue == true
-        // after the user doesn't want to continue adding items isContinue == false
-        // completing the do while loop
         
             do
             {
@@ -103,11 +96,6 @@ class Program
         }
         Console.WriteLine("\nYour total today comes out to: " + "$" + shoppingTotal + "\n");
         
-        // foreach (KeyValuePair<string, decimal> item in shoppingList)
-        // {
-        //     Console.WriteLine(item.Key + ": " + item.Value);
-        // }
-
         Console.WriteLine("--- Ending Shopping List ---");
     }
 }
