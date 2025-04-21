@@ -19,38 +19,31 @@ class Program
      *  Display the sum price of the items ordered
      *
      */
-
-    static bool moreItems()
-    { 
+    
+    static bool moreShopping()
+    {
         bool isThereInput = false;
         string whatUserEntered = "";
         bool getInput = true;
-       
+
         do
         {
-        Console.WriteLine("Would you like to add more items? (Y/N)");
-        whatUserEntered = Console.ReadLine();
-        whatUserEntered = whatUserEntered.ToUpper();
-        string firstChar = whatUserEntered.Substring(0, 1);
-    
-                if (firstChar == "Y")
-                {
-                    getInput = false;
-                    isThereInput = true;
-                }
-                else
-                {
-                    if (whatUserEntered == "N")
-                    {
-                        getInput = false;
-                        isThereInput = false;
-                    }
-                }
-        }while(getInput);
-    
-        return isThereInput;
-    }
+            Console.WriteLine("Would you like to shop for more items? (Y/N)");
+            whatUserEntered = Console.ReadLine().ToUpper();
 
+            if (whatUserEntered == "Y")
+            {
+                getInput = true;
+            }
+            else if (whatUserEntered == "N")
+            {
+                getInput = false;
+            }
+
+        } while (whatUserEntered == "");
+
+        return getInput;
+    }
 
     static void Main(string[] args)
     {
@@ -60,10 +53,10 @@ class Program
 
         Dictionary<string, decimal> itemMenu = new Dictionary<string, decimal>();
 
-        itemMenu["apples"] = 1.99M;
-        itemMenu["pears"] = 2.99M;
-        itemMenu["carrots"] = 3.99M;
-        itemMenu["bananas"] = 4.99M;
+        itemMenu["apple"] = 1.99M;
+        itemMenu["pear"] = 2.99M;
+        itemMenu["carrot"] = 3.99M;
+        itemMenu["banana"] = 4.99M;
         itemMenu["pineapple"] = 5.99M;
         itemMenu["cherry"] = 6.99M;
         itemMenu["lemon"] = 7.99M;
@@ -82,27 +75,38 @@ class Program
         List<string> shoppingList = new List<string>();
 
         decimal shoppingTotal = 0M;
-
-        Console.WriteLine("Please enter something you would like to buy: ");
-        string userInput = Console.ReadLine();
-
-        bool isValid = false;
-
-        do
+        
+        // do this while isContinue == true
+        // after the user doesn't want to continue adding items isContinue == false
+        // completing the do while loop
+        
+            do
+            {
+                Console.WriteLine("Please enter something you would like to buy: ");
+                string userInput = Console.ReadLine();
+                
+                if (itemMenu.ContainsKey(userInput))
+                {
+                    shoppingTotal += itemMenu[userInput];
+                    shoppingList.Add(userInput);
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a valid item you would like to buy: ");
+                }
+            } while (moreShopping());
+            
+        Console.WriteLine("\n***** Shopping List *****");
+        foreach (string item in shoppingList)
         {
-            if (itemMenu.ContainsKey(userInput))
-            {
-                shoppingTotal += itemMenu[userInput];
-                isValid = true;
-            }
-            else
-            {
-                Console.WriteLine("Please enter a valid item you would like to buy: ");
-            }
-
-        } while (isValid == false);
-
+            Console.WriteLine(item);
+        }
         Console.WriteLine("\nYour total today comes out to: " + "$" + shoppingTotal + "\n");
+        
+        // foreach (KeyValuePair<string, decimal> item in shoppingList)
+        // {
+        //     Console.WriteLine(item.Key + ": " + item.Value);
+        // }
 
         Console.WriteLine("--- Ending Shopping List ---");
     }
