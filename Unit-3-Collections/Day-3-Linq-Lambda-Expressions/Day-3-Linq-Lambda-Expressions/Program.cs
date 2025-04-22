@@ -4,7 +4,8 @@ using System;                      // Give me access to C# System
 using System.Collections.Generic;  // Give me access to C# Collections stuff
 using System.Linq;                 // Give me access to the LINQ
 
-internal class Program
+// Removed the internal attribute as this is the only program that uses the class
+class Program
 {
     // Data defined outside of any method (including Main())
     // Still inside the class Program
@@ -213,7 +214,7 @@ internal class Program
      ************************************************************************************/
     static bool moreInput()
     {
-        bool isThereInput = false;  // Hold teh return value 
+        bool isThereInput = false;  // Hold the return value 
 
         string whatUserTyped = "";     // Hold what the user enters
 

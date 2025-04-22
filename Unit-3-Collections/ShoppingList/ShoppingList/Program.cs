@@ -75,18 +75,25 @@ class Program
         
             do
             {
-                Console.WriteLine("Please enter something you would like to buy: ");
-                string userInput = Console.ReadLine();
+                bool validInput = false;
                 
-                if (itemMenu.ContainsKey(userInput))
+                while (!validInput)
                 {
-                    shoppingTotal += itemMenu[userInput];
-                    shoppingList.Add(userInput);
+                    Console.WriteLine("Please enter something you would like to buy: ");
+                    string userInput = Console.ReadLine().ToLower();
+
+                    if (itemMenu.ContainsKey(userInput))
+                    {
+                        shoppingTotal += itemMenu[userInput];
+                        shoppingList.Add(userInput);
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a valid item you would like to buy");
+                    }
                 }
-                else
-                {
-                    Console.WriteLine("Please enter a valid item you would like to buy: ");
-                }
+                
             } while (moreShopping());
             
         Console.WriteLine("\n***** Shopping List *****");
@@ -97,6 +104,8 @@ class Program
         Console.WriteLine("\nYour total today comes out to: " + "$" + shoppingTotal + "\n");
         
         Console.WriteLine("--- Ending Shopping List ---");
-    }
-}
+        
+    } // End of Main()
+    
+} // End of Program
 
