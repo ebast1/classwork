@@ -1,5 +1,6 @@
 ﻿using GeneralPurposeFunctions;
 using System;
+using Day_5_Inheritance_Example;
 
 
 namespace Day_3_Inheritance
@@ -115,6 +116,16 @@ namespace Day_3_Inheritance
 
             Console.Write($" 2nd card: {usaCard2.CardValue} ({usaCard2.GetCardValueName()}) of {usaCard2.CardSuit}\n");
 
+            myFuncs.WriteSeparatorLine("Italian Card Stuff Follows");
+            
+            // Define a 2 of Coins Which is yellow
+            ItalianPlayingCard anItalianCard = new ItalianPlayingCard(2, "Coins", "Yellow");
+            // Define a 10 of Swords Which is yellow
+            ItalianPlayingCard anItalianCard2 = new ItalianPlayingCard(10, "Swords", "Red");
+
+            Console.WriteLine($"Italian Card is: {anItalianCard}");
+            Console.WriteLine($"Italian Card 2 is: {anItalianCard2}");
+            
             myFuncs.PauseProgram();
             
             myFuncs.WriteSeparatorLine("Thanks for trying out our first OOP application!");
