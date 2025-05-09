@@ -36,4 +36,14 @@ public class Movie
         return $"Movie : {movieTitle} - Category : {movieCategory} - Year : {movieYear}";
     }
 
+    public override bool Equals(object? obj)
+    {
+        return base.Equals(obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
+    
 } // End of Movie class

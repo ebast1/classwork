@@ -36,6 +36,7 @@ class Program
     };
     
     static List<string> categoryList = new List<string>();
+    static string userInput;
     
     /*****************************
             Helper Methods
@@ -52,8 +53,7 @@ class Program
         {
             Console.WriteLine(movie.ToString());
         }
-        Console.WriteLine("\n");
-        
+        Console.WriteLine("\n");        
     }
 
     static void showCategories()
@@ -93,27 +93,49 @@ class Program
         Console.WriteLine("**********************");
         
     } // End of showCategories()
-
+    
     static void showMovies()
     {
         // this will take the userInput of what category they select and only display the movies that have that genre/category
-
-        Console.WriteLine("What category of movies would you like to view?");
-        string userInput = Console.ReadLine();
-
-        if (categoryList.Contains(userInput.ToLower()))
+        bool validInput = false;
+        string userInput = "";
+        
+        do
         {
-            foreach (var movie in moviesList)
+            Console.WriteLine("What category of movies would you like to view?");
+            userInput = Console.ReadLine();
+
+            if (categoryList.Contains(userInput))
             {
-                if (categoryList.Contains(movie.MovieCategory))
+                validInput = true;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid category");
+                validInput = false;
+            }
+            
+        } while (!validInput);
+
+            
+        foreach (var movie in moviesList) // going through the list
+        {
+                // a way to go through the list
+                // check the entered category
+                // IF the entered category is in category list and is a valid input
+                // show the movies from the list that match the input
+
+            if (categoryList.Contains(userInput)) 
+            {
+                if (movie.MovieCategory == userInput)
                 {
-                    Console.WriteLine();
+                    Console.WriteLine("----");
+                    Console.WriteLine($"Title: {movie.MovieTitle}\nGenre: {movie.MovieCategory}\nYear Released: {movie.MovieYear}");
                 }
             }
         }
-
+        
     } // End of showMovies()
-
 
     /*****************************/
     
@@ -121,9 +143,17 @@ class Program
     {
         Console.WriteLine("--- Starting MovieLab ---");
 
-        showList();
-        showCategories();
-        
+        do
+        {
+            showList();
+            showCategories();
+            showMovies();
+
+            Console.WriteLine("Would you like to continue looking at the movies? (Y/N)");
+            userInput = Console.ReadLine().ToUpper();
+            
+        } while (userInput == "Y");
+
         Console.WriteLine("--- Ending MovieLab ---");
         
     } // End of Main()
