@@ -1,3 +1,5 @@
+using System.Net;
+
 namespace CarLotLab;
 
 public class Car
@@ -13,7 +15,7 @@ public class Car
     private decimal _price;
 
     public string Make 
-    { 
+    {
         get { return _make; }
         set { _make = value; }
     }
@@ -55,7 +57,7 @@ public class Car
     
     public override string ToString()
     {
-        return $" Car: {_make} - Model : {_model} - Year:  {_year} - Price: {_price}";
+        return $"Car: {_make}\tModel: {_model}\tYear: {_year}\tPrice: {_price}";
     }
 
     public static void AddCar(Car car)
@@ -71,14 +73,21 @@ public class Car
     public static void BuyCar(int index)
     {
         Console.WriteLine($"You have bought this car: {cars[index]}");
-        ownedCars.Add(cars[index]);
+        if (cars[index] is UsedCar)
+        {
+            ownedCars.Add(cars[index]);
+        }
+        else
+        {
+            ownedCars.Add(cars[index]);
+        }
     }
 
     public static void ListCars(List<Car> list)
     {
         foreach (var car in list)
         {
-            Console.WriteLine($"{car} is at index {cars.IndexOf(car)}");
+            Console.WriteLine($"{car} is at index {list.IndexOf(car)}");
         }
     }
 
@@ -87,18 +96,28 @@ public class Car
         cars.RemoveAt(index);
     }
 
-    public static void BuyBack(UsedCar usedCar)
+    public static void BuyBack()
     {
-        Console.WriteLine($"You have sold this car back to the lot: {usedCar}");
-        cars.Add(usedCar);
+        Car.ListCars(ownedCars);
+        
+        Console.WriteLine("Which car would you like to sell? (Please use the index listed for the car)");
+        int userInput = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("How many miles did you drive the car?");
+        int miles = int.Parse(Console.ReadLine());
+
+        if (miles >= 0)
+        {
+            
+        }
+        
+        Console.WriteLine($"You have sold this car back to the lot: {ownedCars[userInput]}");
+        cars.Add(ownedCars[userInput]);
     }
 
     public static void AdminMode()
     {
-        foreach (var car in cars)
-        {
-            Console.WriteLine($"{car} is at index {cars.IndexOf(car)}");
-        }
+        Car.ListCars(cars);
         
         Console.WriteLine("\nWhat Car would you like to remove from the lot? (Please enter the index of the car)");
         
@@ -134,7 +153,7 @@ public class UsedCar : Car
 
     public override string ToString()
     {
-        return $" Car: {Make} - Model : {Model} - Year:  {Year} - Price: {Price} - Mileage: {Mileage}";
+        return $"Car: {Make}\tModel: {Model}\tYear: {Year}\tPrice: {Price}\tMileage: {Mileage}";
     }
     
 }

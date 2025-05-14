@@ -32,6 +32,8 @@ class Program
         
         Car.BuyCar(userInput);
 
+        GeneralPurpose.AddSeperator("ownedCars Test");
+        
         Car.ListCars(Car.ownedCars);
         
         Car.RemoveCar(userInput);
@@ -39,6 +41,10 @@ class Program
         GeneralPurpose.AddSeperator("AdminMode Test");
         
         Car.AdminMode();
+        
+        GeneralPurpose.AddSeperator("BuyBack Test");
+        
+        Car.BuyBack();
         
         // Car.BuyBack();
 
