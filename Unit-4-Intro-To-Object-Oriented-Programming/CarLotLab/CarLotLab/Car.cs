@@ -96,24 +96,28 @@ public class Car
         cars.RemoveAt(index);
     }
 
-    public static void BuyBack()
-    {
-        Car.ListCars(ownedCars);
-        
-        Console.WriteLine("Which car would you like to sell? (Please use the index listed for the car)");
-        int userInput = int.Parse(Console.ReadLine());
-
-        Console.WriteLine("How many miles did you drive the car?");
-        int miles = int.Parse(Console.ReadLine());
-
-        if (miles >= 0)
-        {
-            
-        }
-        
-        Console.WriteLine($"You have sold this car back to the lot: {ownedCars[userInput]}");
-        cars.Add(ownedCars[userInput]);
-    }
+    // public static void BuyBack()
+    // {
+    //     Car.ListCars(ownedCars);
+    //     
+    //     Console.WriteLine("Which car would you like to sell? (Please use the index listed for the car)");
+    //     int userInput = int.Parse(Console.ReadLine());
+    //
+    //     Console.WriteLine("How many miles did you drive the car?");
+    //     int miles = int.Parse(Console.ReadLine());
+    //
+    //     if (ownedCars[userInput] is UsedCar uc)
+    //     {
+    //         uc.Mileage += miles;
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("This is not a used car. Mileage cannot be updated.");
+    //     }
+    //     
+    //     Console.WriteLine($"You have sold this car back to the lot: {ownedCars[userInput]}");
+    //     cars.Add(ownedCars[userInput]);
+    // }
 
     public static void AdminMode()
     {
@@ -126,34 +130,6 @@ public class Car
         Console.WriteLine($"You have removed this car from the lot : {cars[userInput]}");
         
         cars.RemoveAt(userInput);
-    }
-    
-}
-
-public class UsedCar : Car
-{
-
-    private double _mileage;
-
-    public double Mileage
-    {
-        get { return _mileage; }
-        set { _mileage = value; }
-    }
-
-    public UsedCar() : base() // Default UsedCar ctor, with base Car ctor default values as well
-    {
-        _mileage = 0;
-    }
-
-    public UsedCar(string make, string model, int year, decimal price, double mileage) : base(make, model, year, price)
-    {
-        _mileage = mileage;
-    }
-
-    public override string ToString()
-    {
-        return $"Car: {Make}\tModel: {Model}\tYear: {Year}\tPrice: {Price}\tMileage: {Mileage}";
     }
     
 }

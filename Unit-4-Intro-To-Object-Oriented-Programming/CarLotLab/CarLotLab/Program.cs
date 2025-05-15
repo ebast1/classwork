@@ -42,12 +42,6 @@ class Program
         
         Car.AdminMode();
         
-        GeneralPurpose.AddSeperator("BuyBack Test");
-        
-        Car.BuyBack();
-        
-        // Car.BuyBack();
-
     } // End of Main()
     
 } // End of Program class
