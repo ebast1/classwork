@@ -1,0 +1,11 @@
+/* Styling for the contact info page */
+
+/*  Style the navigation section     */
+
+nav { /* style the nav section for the page */
+
+    margin-bottom: 20px; /* space between the nav and the rest of the page */
+    margin-top: 10px; /* space between the nav and the top of the page */
+    font-size: 8pt; /* set the font size for the nav section */
+
+}

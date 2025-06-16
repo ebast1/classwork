@@ -4,14 +4,38 @@
 
 // Single line comment
 
+/*
+
+We test JavaScript code using Inspect in the browser.
+
+*/
+
+
 /**
  * Functions start with the word function.
  * They don't have a return type and the naming convention is camel-case.
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const aVariable = 42;
+  console.log(`The value in aVariable is: ${aVariable}`);
+
   // Declares a variable those value can be changed
+
+  let itBe = 87.4;
+  console.log(`The value in itBe is: ${itBe}`);
+
+  itBe = 1776
+  console.log(`The value in itBe is: ${itBe}`);
+
   // Declares a variable that will always be an array
+  let anArray = [1,2,3,4,5];
+  console.log(`The value in anArray is: ${anArray}`);
+
+  console.log(anArray);
+
+  console.table(anArray);
+
 }
 
 /**

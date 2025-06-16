@@ -1,0 +1,73 @@
+/* This is a comment in CSS */
+
+/* 
+    Tutorials used in the code
+        - https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+*/
+
+
+body {
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*   Sticky Nav Bar CSS   */
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: #152238;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #bbbbbb;
+  color: black;
+  cursor: pointer;
+}
+
+#navbar a.active {
+  background-color: #f99820;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+/* */
+
+/*   Avatar/Profile Rounded Image   */
+#profileImg {
+    border-radius: 50%;
+}
+/* */
+
+.header4 {
+    padding-left: 10px;
+}
+
+footer {
+    font: Arial, sans-serif;
+    font-size: 14px; 
+    text-align: center; 
+    color: gray; 
+    padding: 50px;
+}
