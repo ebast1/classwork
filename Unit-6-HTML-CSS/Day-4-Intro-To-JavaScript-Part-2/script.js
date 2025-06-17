@@ -98,7 +98,8 @@ function objects() {
   };
 
   // Log the object
-
+  console.log(person);
+  console.table(person);
   // Log the first and last name
 
   // Log each employee
@@ -162,4 +163,13 @@ function stringFunctions(value) {
         - trim()
         - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
     */
+}
+
+function arrayFunctions(){
+    let stooges = [
+                  "Moe",
+                  "Larry",
+                  "Curly"
+                  ]
+console.table(stooges);
 }
