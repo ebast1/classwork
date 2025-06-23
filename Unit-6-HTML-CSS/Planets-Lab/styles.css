@@ -1,0 +1,6 @@
+/*    Styles    */
+
+#planetVisual {
+    border-radius: 50%;
+    transition: all;
+}
