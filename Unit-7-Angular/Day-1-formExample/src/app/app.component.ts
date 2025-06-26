@@ -8,7 +8,7 @@ import { FormExampleComponent } from './components/form-example/form-example.com
   selector: 'app-root',
   standalone: true,
   // imports identifies external resources, like components, used in the app
-  imports: [RouterOutlet, FormExampleComponent],  // Note the name has Component
+  imports: [FormExampleComponent],  // Note the name has Component
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
