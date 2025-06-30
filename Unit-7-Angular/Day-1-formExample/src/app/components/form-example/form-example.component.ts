@@ -18,7 +18,7 @@ export class FormExampleComponent {
   foodPreference = ""
   emailAddress = ""
   sendEmail = ""
-  sports = ""
+  sports: any[] = [] 
 
 
 

@@ -25,7 +25,16 @@ export class FormExampleComponent {
   // Checkbox need to be included in the html a individual element
   // More tomorrow
   //sports : any[] 
-  sports = ""
+  sports = [
+    {name: 'European Football', value: 'Soccer'},
+    {name: 'Cricket', value: 'Cricket'},
+    {name: 'American Football', value: 'Football'},
+    {name: 'Baseball', value: 'Baseball'},
+    {name: 'Basketball', value: 'Basketball'},
+    {name: 'Hockey', value: 'Hockey'},
+    {name: 'Other Sport', value: 'Other'},
+    {name: 'None', value: 'None'}
+  ]
  // Methods to handle interactions with the html/web page
   onSubmit() { // Handle the Submit button click on the  form
     this.buttonClicked = true
