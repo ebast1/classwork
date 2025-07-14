@@ -155,3 +155,23 @@
       <input type="submit" value="Click to Submit"/> 
   </div>
   </form>
+
+<!-- TEST CODE FOR ANGULAR PROJECT BELOW -->
+
+<div class="grid-container">
+    <ng-container *ngFor="let item of gridItems" >
+        <div class="grid-item" (click)="onGridItemClick(item)">
+
+            <!-- ngIf icon is null then route to AddImprovement Component -->>
+            <!-- ngIf icon is not null then route the user to the EditImprovement Component instead -->>
+
+            <ng-container *ngIf="!item.icon; else iconBlock">
+                {{ item.name }}
+            </ng-container>
+            <ng-template #iconBlock>
+                <img [src]="item.icon" alt="{{ item.name }}" style="width: 64px; height: 64px;" />
+            </ng-template>
+
+        </div>
+    </ng-container>    
+</div>    
