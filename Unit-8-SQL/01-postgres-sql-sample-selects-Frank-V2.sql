@@ -184,6 +184,26 @@ select gambler_name as Name
 order by Annual_Salary desc 
 ;
 
+--
+-- Show everyone's name and address
+--
+
+select gambler_name, address
+	from gambler
+where address is not null
+order by address DESC
+;
 
 
+select gambler_name
+	 from gambler
+where gambler_name ilike '%d%'
+;
 
+select casino_name
+	from host
+;
+
+select distinct casino_name
+	from host
+;
