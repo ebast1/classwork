@@ -10,10 +10,7 @@ package com.gamblerapi.controller;
 
 import com.gamblerapi.dao.GamblerDAO.GamblerMemoryDao;
 import com.gamblerapi.model.Gambler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -126,5 +123,38 @@ public class GamblerController {
         //   and return the gambler it gives us
         return gamblerDao.getGamblerByName(name);
     } // End of getGamblerByName() method
+
+
+    // Add a Gambler to data source
+    //  1. Method returns a gambler: Gambler object that was added
+    //  2. DAO method that adds a Gambler: addGambler(aGambler)
+    //  3. URL path: /gamblers
+    //  4. HTTP method: POST  --- POST HTTP request is used to add an object to a data source
+    //                        --- The data to be handled by the API is sent to the request body for a POST
+    //                        --- We retrieve the data from the request body with
+    //                        --- @RequestBody will:
+    //                        ---       1. retrieve the data from the body of the request
+    //                        ---       2. Instantiate an object of the class given
+    //                        ---       3. Use the standard name setters for the class to initialize the object
+
+    //                        ---          The attribute names in the JSON stored in the request body
+    //                        ---          must match the variable names in the class
+    //                        ---          standard setter names: setVariableName
+
+    @PostMapping("/gamblers") // This method will handle a POST request for the URL "/gamblers"
+    public Gambler addToDataSource(@RequestBody Gambler newGambler) {
+        return gamblerDao.addGambler(newGambler); // Call the DAO method to add the Gambler to the data source
+    }
+
+    @PutMapping("/gamblers")
+    public Gambler updateAObject(@RequestBody Gambler updatedGambler){
+        return gamblerDao.updateGambler(updatedGambler);
+    }
+
+    @DeleteMapping("/gamblers/{id}")
+    public void removeAGambler(@PathVariable int id){
+        gamblerDao.zapAGambler(id);
+    }
+
 
 }  // End of GamblerController class
